@@ -79,11 +79,10 @@ class AiKeyboardService : InputMethodService() {
         setOnClickListener { action() }
     }
 
-
     private fun insertSpaceWithLocalCorrection() {
         val ic = currentInputConnection ?: return
         val before = ic.getTextBeforeCursor(40, 0)?.toString().orEmpty()
-        val match = Regex("""([\\p{L}]+)$""").find(before)
+        val match = Regex("""(\p{L}+)$""").find(before)
         if (match != null) {
             val word = match.value
             val fixes = mapOf(
@@ -103,7 +102,8 @@ class AiKeyboardService : InputMethodService() {
         }
         ic.commitText(" ", 1)
     }
-\n    private fun correctWithAi() {
+
+    private fun correctWithAi() {
         val ic = currentInputConnection ?: return
         val original = ic.getTextBeforeCursor(1500, 0)?.toString().orEmpty()
         if (original.isBlank()) {
