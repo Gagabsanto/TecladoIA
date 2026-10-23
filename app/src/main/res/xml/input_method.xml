@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<input-method xmlns:android="http://schemas.android.com/apk/res/android">
-    <subtype android:label="Português" android:imeSubtypeLocale="pt_BR" android:imeSubtypeMode="keyboard" />
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:settingsActivity="br.com.tecladoia.MainActivity">
+    <subtype
+        android:label="Português (Brasil)"
+        android:imeSubtypeLocale="pt_BR"
+        android:imeSubtypeMode="keyboard"
+        android:isAsciiCapable="true" />
 </input-method>
